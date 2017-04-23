@@ -1,0 +1,115 @@
+body {
+    /*-webkit-touch-callout: none;*/ /* iOS Safari */
+    /*-webkit-user-select: none;*/ /* Safari */
+    /*-khtml-user-select: none;*/ /* Konqueror HTML */
+    /*-moz-user-select: none;*/ /* Firefox */
+    /*-ms-user-select: none;*/ /* Internet Explorer/Edge */
+    /*user-select: none;*/ /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.btn {
+    border-radius: 0px;
+}
+
+.home-image {
+    width: 100%;
+}
+
+#page-siswa {
+    background-color: #cacaca;
+    min-height: 100vh;
+    padding-bottom: 35px;
+}
+
+#header-siswa {
+    cursor: default;
+    height: 97px;
+    background-color: #2e6499;
+    color: white;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 0px 3px 2px #7e7e7e;
+    -moz-box-shadow: 0px 3px 2px #7e7e7e;
+    box-shadow: 0px 3px 2px #7e7e7e;
+}
+
+#header-siswa-left {
+    display: inline-block;
+    width: 500px;
+    height: 97px;
+    margin-left: 20px;
+    padding-top: 18px;
+}
+
+#header-main {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+#header-desc {
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+#header-siswa-right {
+    float: right;
+    width: 275px;
+    height: 97px;
+    background-color: #333333;
+}
+
+#header-profile-pic {
+    float: left;
+    margin-top: 18px;
+    margin-left: 26px;
+    margin-right: 20px;
+}
+
+#header-profile-info-1 {
+    margin-top: 18px;
+    font-weight: 600;
+}
+
+#header-profile-info-2 {
+    font-weight: 800;
+}
+
+#header-profile-logout {
+    color: #2e6499;
+}
+
+.btn-dihome {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.opaque-navbar {
+    background-color: rgba(0,0,0,0.5);
+    /*Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
+    height: 60px;
+    border-bottom: 0px;
+    transition: background-color .5s ease 0s;
+}
+
+.opaque-navbar.opaque {
+    background-color: black;
+    height: 60px;
+    transition: background-color .5s ease 0s;
+}
+
+ul.dropdown-menu {
+    background-color: black;
+}
+
+.btn-menu {
+    margin-top: -100px;
+}
+
+
+@media (max-width: 992px) {
+  .opaque-navbar {
+    background-color: black;
+    height: 60px;
+    transition: background-color .5s ease 0s;
+  }
+
+}

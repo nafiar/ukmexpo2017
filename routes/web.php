@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::get('/home', 'FrontendController@home');
+Route::get('/login', 'FrontendController@login');
+Route::get('/daftarukm', 'FrontendController@daftarukm');
