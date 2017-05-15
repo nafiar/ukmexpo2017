@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Manajemen Kegiatan | @yield('title')</title>
-	<link rel="icon" type="image/png" href="{{asset('img/sby.png')}}">
+	<title>Admin | @yield('title')</title>
+	<link rel="icon" type="image/png" href="{{asset('img/logoukmexpo.png')}}">
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.6 -->
@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="{{asset('bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}">
 		<link rel="stylesheet" href="{{asset('bower_components/datatables/media/css/jquery.dataTables.min.css')}}">
 	<link rel="stylesheet" href="{{asset('bower_components/datatables/media/css/dataTables.bootstrap.min.css')}}">
+	<!-- <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrappaper.css')}}"> -->
 	<style type="text/css">
 		@font-face {
 			font-family: Hanacaraka;
@@ -27,7 +28,7 @@
 	</style>
 	<!-- AdminLTE -->
 	<link rel="stylesheet" href="{{asset('bower_components/AdminLTE/dist/css/AdminLTE.min.css')}}">
-	<link rel="stylesheet" href="{{asset('bower_components/AdminLTE/dist/css/skins/skin-blue.min.css')}}">
+	<link rel="stylesheet" href="{{asset('bower_components/AdminLTE/dist/css/skins/skin-blue-light.min.css')}}">
 	<!-- sweetalert -->
 	<link rel="stylesheet" href="{{asset('bower_components/sweetalert/dist/sweetalert.css')}}">
 
@@ -41,7 +42,7 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue-light sidebar-mini">
 <div class="wrapper">
 	@include('layouts.header')
 	@include('layouts.sidebar')
@@ -61,7 +62,6 @@
 		</section>
 	</div>
 	@include('layouts.footer')
-	{{-- @include('layouts.aside') --}}
 </div>
 <script src="{{asset('bower_components/moment/min/moment.min.js')}}"></script>
 <script src="{{asset('bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
@@ -74,6 +74,7 @@
 <script src="{{asset('bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
 <script src="{{asset('bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
 <script src="{{asset('bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
+<!-- <script type="text/javascript" src="{{asset('js/bootstrappaper.js')}}"></script> -->
 <script src="{{asset('bower_components/sweetalert/dist/sweetalert.min.js')}}"></script>
 <script src="{{ URL::asset('/bower_components/tinymce/tinymce.min.js') }}" type="text/javascript" ></script>
 <script>

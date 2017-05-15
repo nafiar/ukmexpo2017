@@ -15,6 +15,23 @@
     return view('welcome');
 });*/
 
-Route::get('/home', 'FrontendController@home');
-Route::get('/login', 'FrontendController@login');
-Route::get('/daftarukm', 'FrontendController@daftarukm');
+Route::get('/home', 'UserController@index');
+Route::get('/login', 'AuthController@login');
+Route::post('/login', 'AuthController@doLogin');
+Route::get('/logout', 'AuthController@logout');
+//Route::get('/daftarukm', 'FrontendController@daftarUkm');
+Route::get('/carinrp', 'UserController@carinrp');
+Route::post('/carinrp', 'UserController@doPencarian');
+Route::get('/daftaranggota', 'UserController@daftarAnggotaUkm');
+Route::get('/daftarukm', 'UserController@daftarUkm');
+Route::get('/profilukm/{id_ukm}', 'UserController@profilUkm');
+
+Route::group(['middleware' => ['Authentikasi']], function(){
+	Route::get('/admin/dashboard', 'AuthController@dashboard');
+	Route::resource('/admin/daftaranggota', 'AdminDaftarAnggotaController');
+	Route::resource('/admin/profilukm', 'AdminProfilUkmController');
+	Route::resource('/admin/pendaftaran', 'AdminPendaftaranController');
+	Route::resource('/admin/pengumumanukm', 'AdminPengumumanUkmController');
+	Route::get('/admin/pendaftaran/profilpendaftar/{id}', 'AdminPendaftaranController@profilPendaftaran');
+	Route::get('/admin/pendaftaran/terima/{id}', 'AdminPendaftaranController@terimaPendaftaran');
+});

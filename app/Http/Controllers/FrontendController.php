@@ -8,7 +8,7 @@ class FrontendController extends Controller
 {
     public function home()
     {
-    	return view('panitia.home');
+    	return view('home');
     }
 
     public function login()
@@ -21,4 +21,11 @@ class FrontendController extends Controller
     	return view('panitia.daftarukm');
     }
 
+    public function carinrp(){
+        return view('carinrp');
+    }
+
+    public function userDaftarukm(){
+        return view('daftarukm');
+    }
 }

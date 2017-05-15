@@ -2449,7 +2449,7 @@ TableTools.prototype = {
 			}
 		}
 
-		/* Print class can be used for styling */
+		/* print class can be used for styling */
 		$(document.body).addClass( this.classes.print.body );
 
 		/* Show information message to let the user know what is happening */
@@ -2903,7 +2903,7 @@ TableTools.BUTTONS = {
 	} ),
 
 	"print": $.extend( {}, TableTools.buttonBase, {
-		"sInfo": "<h6>Print view</h6><p>Please use your browser's print function to "+
+		"sInfo": "<h6>print view</h6><p>Please use your browser's print function to "+
 		  "print this table. Press escape when finished.</p>",
 		"sMessage": null,
 		"bShowAll": true,

@@ -3,9 +3,9 @@
   <!-- Logo -->
   <a href="#" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><img src="{{asset("img/sby.png")}}" height="40px" style="margin-right: 10px"></span>
+    <span class="logo-mini"><img src="{{asset("img/logoukmexpo.png")}}" height="40px" style="margin-right: 10px"></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><img src="{{asset("img/sby.png")}}" height="40px" style="margin-right: 10px"><span style="font-size: 16px">Manajemen Kegiatan</span></span>
+    <span class="logo-lg"><img src="{{asset("img/logoukmexpo.png")}}" height="40px" style="margin-right: 10px"><span style="font-size: 16px">Admin UKM</span></span>
   </a>
 
   <!-- Header Navbar: style can be found in header.less -->
@@ -16,37 +16,27 @@
     </a>
     <!-- Navbar Right Menu -->
     <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav" style="margin-top: 15px; margin-right: 390px; color: #fff;">
-        <li>@yield('navtitle')</li>
-      </ul>
+      
       <ul class="nav navbar-nav">
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="{{asset('images/user-01.png')}}" class="user-image" alt="User Image">
-            <span class="hidden-xs">{{session('user')['name']}}</span>
+            <img src="{{asset('img/user-01.png')}}" class="user-image" alt="User Image">
+            <span class="hidden-xs">{{session('user')['nama_ukm']}}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
-              <img src="{{asset('images/user-01.png')}}" class="img-circle" alt="User Image">
+              <img src="{{asset('img/user-01.png')}}" class="img-circle" alt="User Image">
               <p>
-                {{session('user')['name']}}
+                {{session('user')['nama_ukm']}}
                 <small>Klik tombol Sign Out untuk keluar, tombol Setting untuk ganti password</small>
               </p>
             </li>
             <!-- Menu Footer-->
             <li class="user-footer">
-              <div class="pull-left">
-                @if(session('user')['role'] != 4)
-                <a href="/manajemensoal/dashboard/setting" class="btn btn-default btn-flat">Setting</a>
-                @endif 
-                @if(session('user')['role'] == 4)
-                <a href="/manajemenkegiatan/dashboard/setting" class="btn btn-default btn-flat">Setting</a>
-                @endif
-              </div>
               <div class="pull-right">
-                <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
+                <a href="/logout" class="btn btn-default btn-flat">Log out</a>
               </div>
             </li>
           </ul>

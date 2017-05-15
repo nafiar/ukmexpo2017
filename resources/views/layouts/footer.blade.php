@@ -2,5 +2,5 @@
   <div class="pull-right hidden-xs">
     <b>Version</b> 1.0.0
   </div>
-  <strong>Copyright &copy; 2017 <a href="#" style="color:blue">Dinas Pendidikan Surabaya</a>.</strong> All rights reserved.
+  <strong>Copyright &copy; 2017 <a href="#" style="color:blue">MPPL A</a>.</strong> All rights reserved.
 </footer>

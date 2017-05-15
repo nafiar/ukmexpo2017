@@ -1,115 +1,141 @@
-body {
-    /*-webkit-touch-callout: none;*/ /* iOS Safari */
-    /*-webkit-user-select: none;*/ /* Safari */
-    /*-khtml-user-select: none;*/ /* Konqueror HTML */
-    /*-moz-user-select: none;*/ /* Firefox */
-    /*-ms-user-select: none;*/ /* Internet Explorer/Edge */
-    /*user-select: none;*/ /* Non-prefixed version, currently supported by Chrome and Opera */
+.footer {
+	margin-top: 20px;
 }
 
-.btn {
-    border-radius: 0px;
+.waktu-jadwal {
+	text-align: center;
 }
 
-.home-image {
-    width: 100%;
+.label-durasi {
+	margin-top: 10px;
 }
 
-#page-siswa {
-    background-color: #cacaca;
-    min-height: 100vh;
-    padding-bottom: 35px;
+.panel-form {
+	padding: 10px;
 }
 
-#header-siswa {
-    cursor: default;
-    height: 97px;
-    background-color: #2e6499;
-    color: white;
-    margin-bottom: 40px;
-    -webkit-box-shadow: 0px 3px 2px #7e7e7e;
-    -moz-box-shadow: 0px 3px 2px #7e7e7e;
-    box-shadow: 0px 3px 2px #7e7e7e;
+.form-reservasi {
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
-#header-siswa-left {
-    display: inline-block;
-    width: 500px;
-    height: 97px;
-    margin-left: 20px;
-    padding-top: 18px;
+.kalender {
+	margin-top: 10px;
+	margin-bottom: 50px;
 }
 
-#header-main {
-    font-size: 25px;
-    font-weight: 700;
+.kotak-kalender {
+	margin-top: -20px;
+	margin-bottom: 60px;
+	clear: right;
 }
 
-#header-desc {
-    font-size: 15px;
-    letter-spacing: 2px;
+.hari-minggu {
+	color: #ff0000;
 }
 
-#header-siswa-right {
-    float: right;
-    width: 275px;
-    height: 97px;
-    background-color: #333333;
+.hari-kalender {
+	float: left;
+	display: inline-block; 
+	width: 162.8px; 
+	height: 30px; 
+	background-color: #efefef; 
+	margin: auto;
 }
 
-#header-profile-pic {
-    float: left;
-    margin-top: 18px;
-    margin-left: 26px;
-    margin-right: 20px;
+.hari-kalender p {
+	text-align: center;
+	margin: auto; 
+	width: 50%; 
+	margin-top: 2px; 
+	font-size: 16px;
 }
 
-#header-profile-info-1 {
-    margin-top: 18px;
-    font-weight: 600;
+.tanggal-kalender {
+	float: left;
+	width: 162.8px;
+	height: 100px;
+	padding: 7px;
+	margin-bottom: 0px;
 }
 
-#header-profile-info-2 {
-    font-weight: 800;
+.konten-tanggal p {
+	margin-top: -1px;
+	margin-bottom: 2px;
+	margin-left: 5px;
+	font-size: 16px;
 }
 
-#header-profile-logout {
-    color: #2e6499;
+.konten-jadwal {
+	overflow-y: auto; 
+	float: left;
+	width: 145px;
 }
 
-.btn-dihome {
-    margin-left: 100px;
-    margin-right: 100px;
+.jadwal {
+	outline: none;
+	border-radius: 16px;
+	white-space: nowrap;
+	font-size: 13px;
+	background-color: #efefef;
+	box-shadow: 0 0 0;
 }
 
-.opaque-navbar {
-    background-color: rgba(0,0,0,0.5);
-    /*Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
-    height: 60px;
-    border-bottom: 0px;
-    transition: background-color .5s ease 0s;
+.jadwal:active {
+	outline: none;
+	border: none;
 }
 
-.opaque-navbar.opaque {
-    background-color: black;
-    height: 60px;
-    transition: background-color .5s ease 0s;
+.jadwal:focus {
+	outline: none;
 }
 
-ul.dropdown-menu {
-    background-color: black;
+.jadwal.change {
+	border: none;
 }
 
-.btn-menu {
-    margin-top: -100px;
+.jadwal p {
+	text-align: center;
+	margin: auto; 
+	width: 50%; 
+	margin-top: 2px; 
+	color: #000000;
+	font-size: 13px; 
 }
 
+.waktu-home {
+	margin-top: 70px;
+	margin-bottom: 35px;
+}
 
-@media (max-width: 992px) {
-  .opaque-navbar {
-    background-color: black;
-    height: 60px;
-    transition: background-color .5s ease 0s;
-  }
+.schedule-hari {
+	margin-bottom: 15px;
+}
 
+.schedule {
+	padding-top: 30px;
+
+}
+
+.schedule h4 {
+	text-align: center;
+	margin: auto; 
+	width: 50%; 
+	margin-top: 2px; 
+	color: #000000;
+}
+
+.detail-schedule {
+	padding-left: 40px;
+	text-align: left; 
+}
+
+.carinrp {
+	margin-top: 100px;
+	margin-bottom: 260px;
+}
+
+.pengumuman {
+	margin-top : 70px;
+	margin-bottom: 70px;
 }
