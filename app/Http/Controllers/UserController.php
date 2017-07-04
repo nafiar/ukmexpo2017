@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\MahasiswaBaru;
 use App\AnggotaUkm;
 use App\Ukm;
+use App\PengumumanUkm;
+use App\ProfilUkm;
 use Redirect;
 use DB;
 
@@ -13,9 +15,7 @@ class UserController extends Controller
 {
     public function index(Request $request){
     	if(session('ukm')){
-            //dd(session('ukm'));
-            $request->session()->flush();
-            //dd(session('ukm'));
+            $request->session()->forget('ukm');
             return view('home');
         }
         else{
@@ -58,10 +58,12 @@ class UserController extends Controller
             $ukm = Ukm::where('id_ukm',$id_ukm)->first();
             $dataUkm = array('id_ukm' => $ukm->id_ukm, 'nama_ukm' => $ukm->nama_ukm, 'foto_ukm' => $ukm->foto_ukm);
             $request->session()->put('ukm', $dataUkm);
-            return view('profilukm');
+            $data['profil'] = ProfilUkm::where('id_ukm_profil', session('ukm')['id_ukm'])->first();
+            return view('profilukm', $data);
         }
         else{
-            return view('profilukm');
+            $data['profil'] = ProfilUkm::where('id_ukm_profil', session('ukm')['id_ukm'])->first();
+            return view('profilukm', $data);
         } 
     }
 
@@ -72,6 +74,20 @@ class UserController extends Controller
         else{
             $data['anggotas'] = AnggotaUkm::where('id_ukm', session('ukm')['id_ukm'])->orderBy('hirarki_anggota','asc')->get();
             return view('daftar-anggota', $data); 
+        }
+    }
+
+    public function pengumumanUkm(){
+        if(!session('ukm')){
+            return Redirect::to(url('/daftarukm'));
+        }
+        else{
+            $data['pengumuman'] = PengumumanUkm::where('id_ukm_pengumuman', session('ukm')['id_ukm'])->first();
+            if(!$data['pengumuman']){
+                return view('pengumumanukmnotfound');
+            }
+            else 
+                return view('pengumumanukm', $data);
         }
     }
 }

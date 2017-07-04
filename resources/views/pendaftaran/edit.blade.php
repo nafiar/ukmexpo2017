@@ -15,6 +15,7 @@ Tambahkan Anggota
 @section('content')
 <ul class="nav nav-pills">
     <li class=""><a href="/admin/daftaranggota"><i class="glyphicon glyphicon-align-justify"></i>List Anggota</a></li>
+    <li class=""><a href="/admin/pendaftaran/diterima/"><i class="glyphicon glyphicon-align-justify"></i>List Diterima</a></li>
     <li class=""><a href="/admin/daftaranggota/create"><i class="glyphicon glyphicon-plus"></i>Tambah Anggota</a></li>
     <li class="active"><a href="/admin/daftaranggota/create"><i class="glyphicon glyphicon-plus"></i>Edit</a></li>
 </ul>

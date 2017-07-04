@@ -15,6 +15,7 @@ Form Pendaftaran
 @section('content')
 <ul class="nav nav-pills">
     <li class=""><a href="/admin/pendaftaran"><i class="glyphicon glyphicon-align-justify"></i>Pendaftaran</a></li>
+    <li class=""><a href="/admin/pendaftaran/diterima/"><i class="glyphicon glyphicon-align-justify"></i>List Diterima</a></li>
     <li class="active"><a href="/admin/pendaftaran/create"><i class="glyphicon glyphicon-plus"></i>Form Pendaftaran</a></li>
 </ul>
 <div class="box box-primary">

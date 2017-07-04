@@ -139,3 +139,7 @@
 	margin-top : 70px;
 	margin-bottom: 70px;
 }
+
+.gambar-home {
+	background-image: url("D:\App\xampp\htdocs\ukmexpo2017/public/img/ukmexpo.jpg");
+}

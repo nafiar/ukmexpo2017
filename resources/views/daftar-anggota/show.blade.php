@@ -3,7 +3,7 @@
 @section('title', 'Daftar Anggota')
 
 @section('title-content')
-Tambahkan Anggota
+Detail Anggota
 @endsection
 
 @section('breadcrumb')

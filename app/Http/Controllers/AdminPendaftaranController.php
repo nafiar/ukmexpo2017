@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\FormPendaftaran;
 use App\PenerimaanPendaftaran;
@@ -50,22 +51,43 @@ class AdminPendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        $form_pendaftaran = new FormPendaftaran();
-        $form_pendaftaran->id_form = Uuid::generate()->string;
-        $form_pendaftaran->id_ukm = session('user')['id_ukm'];
-        $form_pendaftaran->nrp_maba = $request->nrp_maba;
-        $form_pendaftaran->asal_form = $request->asal_form;
-        $form_pendaftaran->nomor_form = $request->nomor_form;
-        $form_pendaftaran->id_line_form = $request->id_line_form;
-        $form_pendaftaran->hobi_form = $request->hobi_form;
-        $form_pendaftaran->motivasi_form = $request->motivasi_form;
-        $form_pendaftaran->prestasi_form = $request->prestasi_form;
-        $form_pendaftaran->kesibukan_form = $request->kesibukan_form;
-        $form_pendaftaran->status_form = 0;
-        if($form_pendaftaran->save())
-            return Redirect::to(str_replace('/create', '', $request->url()))->with('message','Sukses menyimpan data Pendaftaran baru');
+        $messagesError = [ 
+            'nrp_maba.required' => 'NRP tidak boleh kosong.',
+            'asal_form.required' => 'Kota Asal tidak boleh kosong.',
+            'nomor_form.required' => 'Nomor HP tidak boleh kosong.',
+            'id_line_form.required' => 'ID Line tidak boleh kosong.',
+            ];
+
+        $validator = Validator::make($request->all(), [ 
+                'nrp_maba' => 'required',
+                'asal_form' => 'required',
+                'nomor_form' => 'required',
+                'id_line_form' => 'required',    
+            ], $messagesError);
+
+        if($validator->fails()) 
+        { 
+            return Redirect::to($request->url())->withErrors($validator)->withInput();
+        }
         else
-            return Redirect::to(str_replace('/create', '', $request->url()))->withErrors('Gagal menyimpan data Pendaftaran Baru');
+        {
+            $form_pendaftaran = new FormPendaftaran();
+            $form_pendaftaran->id_form = Uuid::generate()->string;
+            $form_pendaftaran->id_ukm = session('user')['id_ukm_user'];
+            $form_pendaftaran->nrp_maba = $request->nrp_maba;
+            $form_pendaftaran->asal_form = $request->asal_form;
+            $form_pendaftaran->nomor_form = $request->nomor_form;
+            $form_pendaftaran->id_line_form = $request->id_line_form;
+            $form_pendaftaran->hobi_form = $request->hobi_form;
+            $form_pendaftaran->motivasi_form = $request->motivasi_form;
+            $form_pendaftaran->prestasi_form = $request->prestasi_form;
+            $form_pendaftaran->kesibukan_form = $request->kesibukan_form;
+            $form_pendaftaran->status_form = 0;
+            if($form_pendaftaran->save())
+                return Redirect::to(str_replace('/create', '', $request->url()))->with('message','Sukses menyimpan data Pendaftaran baru');
+            else
+                return Redirect::to(str_replace('/create', '', $request->url()))->withErrors('Gagal menyimpan data Pendaftaran Baru');
+        }
     }
 
     /**
@@ -117,6 +139,7 @@ class AdminPendaftaranController extends Controller
     public function profilPendaftar($id)
     {
         $data['mahasiswa_baru'] = MahasiswaBaru::where('nrp_maba', $id)->first();
+        $data['detail_mahasiswa'] = FormPendaftaran::where('nrp_maba', $id)->where('id_ukm', session('user')['id_ukm_user'])->first();
         $mendaftars = FormPendaftaran::where('nrp_maba', $id)->get();
         $diterimas = PenerimaanPendaftaran::where('nrp_maba', $id)->get();
         $mendaftar_ukm = array();
@@ -124,7 +147,7 @@ class AdminPendaftaranController extends Controller
         if($mendaftars){
             foreach ($mendaftars as $key => $mendaftar) {
                 $ukm = Ukm::where('id_ukm', $mendaftar->id_ukm)->first();
-                $temp = ['nama_ukm' => $ukm->nama_ukm];
+                $temp = ['nama_ukm' => $ukm->nama_ukm, 'id_ukm' => $ukm->id_ukm];
                 array_push($mendaftar_ukm, $temp);
                 unset($temp);
                 unset($ukm);
@@ -133,7 +156,7 @@ class AdminPendaftaranController extends Controller
         if($diterimas){
             foreach ($diterimas as $key => $diterima) {
                 $ukm = Ukm::where('id_ukm', $diterima->id_ukm)->first();
-                $temp = ['nama_ukm' => $ukm->nama_ukm];
+                $temp = ['nama_ukm' => $ukm->nama_ukm, 'id_ukm' => $ukm->id_ukm];
                 array_push($terdaftar_ukm, $temp);
                 unset($temp);
                 unset($ukm);
@@ -141,6 +164,7 @@ class AdminPendaftaranController extends Controller
         }
         $data['mendaftars'] = $mendaftar_ukm;
         $data['diterimas'] = $terdaftar_ukm;
+        //dd($data);
         return view('pendaftaran.showprofil', $data);
     }
 
@@ -158,5 +182,19 @@ class AdminPendaftaranController extends Controller
         else{
             return Redirect::to('/admin/pendaftaran')->withErrors('Gagal menyimpan data Pendaftaran baru');
         }
+    }
+
+    public function pendaftarDiterima(){
+        $diterimas = PenerimaanPendaftaran::where('id_ukm', session('user')['id_ukm_user'])->get();
+        if($diterimas){
+            $data_pendaftar = array();
+            foreach ($diterimas as $key => $diterima) {
+                $maba = MahasiswaBaru::where('nrp_maba', $diterima->nrp_maba)->first();
+                $data_pendaftar[$diterima->nrp_maba] = ['nama_maba' => $maba->nama_maba, 'jurusan' => $maba->jurusan_maba,];
+            }
+        }
+        $data['diterimas'] = $diterimas;
+        $data['data_pendaftar'] = $data_pendaftar;
+        return view('pendaftaran.diterima', $data);
     }
 }

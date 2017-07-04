@@ -3,7 +3,7 @@
 @section('title', 'Form Pendaftaran')
 
 @section('title-content')
-Form Pendaftaran
+Detail Pendaftaran
 @endsection
 
 @section('breadcrumb')
@@ -15,6 +15,7 @@ Form Pendaftaran
 @section('content')
 <ul class="nav nav-pills">
     <li class=""><a href="/admin/pendaftaran"><i class="glyphicon glyphicon-align-justify"></i>Pendaftaran</a></li>
+    <li class=""><a href="/admin/pendaftaran/diterima/"><i class="glyphicon glyphicon-align-justify"></i>List Diterima</a></li>
     <li class=""><a href="/admin/pendaftaran/create"><i class="glyphicon glyphicon-plus"></i>Form Pendaftaran</a></li>
     <li class="active"><a href="/admin/pendaftaran/{{$pendaftaran->nrp_maba}}">Detail Pendaftaran</a></li>
 </ul>

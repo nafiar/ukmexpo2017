@@ -3,7 +3,7 @@
 @section('title', 'Daftar Anggota')
 
 @section('title-content')
-Tambahkan Anggota
+Edit Data Anggota
 @endsection
 
 @section('breadcrumb')
@@ -15,11 +15,10 @@ Tambahkan Anggota
 @section('content')
 <ul class="nav nav-pills">
     <li class=""><a href="/admin/daftaranggota"><i class="glyphicon glyphicon-align-justify"></i>List Anggota</a></li>
-    <li class=""><a href="/admin/daftaranggota/create"><i class="glyphicon glyphicon-plus"></i>Tambah Anggota</a></li>
-    <li class="active"><a href="/admin/daftaranggota/create"><i class="glyphicon glyphicon-plus"></i>Edit</a></li>
+    <li class="active"><a href="/admin/daftaranggota/{{$anggota->nrp_anggota}}/edit"><i class="glyphicon glyphicon-plus"></i>Tambah Anggota</a></li>
 </ul>
 <div class="box box-primary">
-    <form class="form-horizontal" method="POST" action="{{str_replace('/create','',Request::url())}}">
+    <form class="form-horizontal" method="POST" action="{{str_replace('/edit','',Request::url())}}">
         <div class="box-body" style="padding: 20px;">
             <div class="form-group">
                 <label class="col-md-offset-1 col-md-2 control-label">NRP Anggota</label>
@@ -52,10 +51,11 @@ Tambahkan Anggota
             </div>
             <div class="col-md-10 form-group">
 
-                <button type="submit" class="btn btn-primary pull-right" style="margin: 0 10px;">Submit</button>
-                <a type="" class="btn btn-default pull-right" href="{{url('/admin/daftaranggota')}}" style="margin-rig: 10px;">Batal</a>
-                {{method_field('PUT')}}
                 {{csrf_field()}}
+                {{method_field('PUT')}}
+                <button type="submit" class="btn btn-primary pull-right" style="margin: 0 10px;">Submit</button>
+                <button type="submit" class="btn btn-danger pull-right" style="margin: 0 10px;">Delete</button>
+                <a type="" class="btn btn-default pull-right" href="{{url('/admin/daftaranggota')}}" style="margin: 0 10px;">Batal</a>
             </div>
         </div> 
     </form>

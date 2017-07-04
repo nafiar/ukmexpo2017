@@ -18,9 +18,9 @@ Daftar Anggota
     <li class=""><a href="/admin/daftaranggota/create"><i class="glyphicon glyphicon-plus"></i>Tambah Anggota</a></li>
 </ul>
 <div class="box box-primary">
-    <div class="box-body" style="padding: 20px;">
+    <div class="box-body" style="padding: 10px 20px;">
         @if ($errors->count()>0)
-            <div class="alert-danger" style="color:red; text-align:left; font-weight:bold; padding: 0.5em">
+            <div class="alert alert-danger">
                 @foreach ($errors->all() as $error)
                     <p>{{ $error }}</p>
                 @endforeach
@@ -28,28 +28,28 @@ Daftar Anggota
             <br>
         @endif
         @if (Session::get('message'))
-            <div style="color:white; background-color: green; font-weight:bold; padding: 0.5em">
+            <div class="alert alert-success" >
                {{Session::get('message')}}
             </div>
             <br>
         @endif
-        <h4 style="text-align: center;">Anggota dan Pengurus {{session('user')['nama_ukm']}}</h4>
+        <h3 style="text-align: center; margin-bottom: 20px;">Anggota dan Pengurus {{session('user')['nama_ukm']}}</h3>
         <table id="tableKelas" class="table table-striped">
             <thead>
                 <tr class="danger judul-kolom">
                     <th >No</th>
                     <th class="col-md-3">NRP</th>
                     <th class="col-md-4">Nama</th>
-                    <th class="col-md-4">Jabatan</th>
+                    <th class="col-md-3">Jabatan</th>
                     <th class="text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
             @foreach ($anggotas as $index => $anggota)
                 @if($index % 2==0)
-                <tr>
-                @else
                 <tr class="warning">
+                @else
+                <tr>
                 @endif
                     <td>{{$index+1}}</td>
                     <td>{{$anggota->nrp_anggota}}</td>
@@ -63,24 +63,6 @@ Daftar Anggota
             </tbody>
         </table>
         <br>
-        <div class="row">
-            <div class="hidden-sm hidden-xs">
-                <div class="col-md-6">
-                    <!-- Menampilkan <b> 5 {{-- {{$kelas->count()+($kelas->currentPage()-1)*$kelas->perPage()}} --}} dari {{-- {{$kelas->total()}} --}} 10 </b> data-->
-                </div>
-                <div class="col-md-6 text-right pagination">
-                    {{-- {{ $kelas->links() }} --}}
-                </div>
-            </div>
-            <div class="hidden-md hidden-lg">
-                <div class="col-sm-12 text-center">
-                    <!-- Menampilkan 5 <b>{{-- {{$kelas->count()+($kelas->currentPage()-1)*$kelas->perPage()}} --}} dari {{-- {{$kelas->total()}} --}} 10</b> data -->
-                </div>
-                <div class="col-sm-12 text-center pagination">
-                    {{-- {{ $kelas->links() }} --}}
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 @endsection

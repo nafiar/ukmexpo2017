@@ -15,7 +15,7 @@
     <div class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{url('/daftaranggota')}}"><i class="glyphicon glyphicon-user"></i> Daftar Anggota</a></li>
-        <li><a href="{{url('/Pengumumann')}}"><i class="glyphicon glyphicon-info-sign"></i> Pengumuman</a></li>
+        <li><a href="{{url('/pengumumanukm')}}"><i class="glyphicon glyphicon-info-sign"></i> Pengumuman</a></li>
         <li><a href="{{url('/home')}}"><i class="glyphicon glyphicon-home"></i> Home Ukm Expo</a></li>
       </ul>
     </div>

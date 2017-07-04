@@ -18,6 +18,7 @@ Profil {{session('ukm')['nama_ukm']}}
 				<p style="text-align: justify;" align="center">UKM Sepakbola ITS merupakan Unit Kegiatan yang menaungi mahasiswa ITS dalam bidang olahraga Sepakbola dan Futsal. Adanya UKM ini diharapkan dapat terus mengasah bakat-bakat mahasiswa kampus perjuangan hingga pada akhirnya dapat meraih prestasi non-akademik, khususnya di bidang olahraga Sepakbola dan Futsal.</p>
 				<p style="text-align: justify;" align="center">Terdapat tiga kategori di dalam UKM Sepakbola ITS, antara lain yaitu Sepakbola, Futsal Putra, dan Futsal Putri. Ketiga kategori ini diharapkan mampu menjadi cermin persepakbolaan ITS di kancah nasional bahkan internasional.</p>
 				<p style="text-align: justify;" align="center">UKM Sepakbola ITS atau yang akrab dengan nama Sepakbola ITS ini berdiri pada tahun 1988, tepatnya pada tangga 5 Mei 1988. Angka 88 merupakan dua angka yang tidak terputus, yang nantinya diharapkan kejayaan dua bidang olahraga yaitu Sepakbola dan Futsal ITS tidak akan terputus.</p>
+				
 			</div>				
 		</div>
 	</div>

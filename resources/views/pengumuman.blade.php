@@ -11,10 +11,12 @@ Pengumuman
 	<div class="col-md-8 col-md-offset-2 pengumuman">
 		<div class="panel panel-default panel-form">
 			<div class="panel-body">				
-				<h4><strong>Data Mahasiswa :</strong></h4>
-				<p>Nama : {{$mahasiswa_baru->nama_maba}}</p>
-				<p>NRP 	: {{$mahasiswa_baru->nrp_maba}}</p>
-				<p>Jurusan	: {{$mahasiswa_baru->jurusan_maba}}</p>
+				<div style="margin-left: 30px;">
+					<h4><strong>Data Mahasiswa :</strong></h4>
+					<p>Nama : {{$mahasiswa_baru->nama_maba}}</p>
+					<p>NRP 	: {{$mahasiswa_baru->nrp_maba}}</p>
+					<p>Jurusan	: {{$mahasiswa_baru->jurusan_maba}}</p>	
+				</div>
 				<hr>
 				@if ($ukms)
 					<h4 style="text-align: center;"><strong>Selamat Kamu sudah diterima di ukm :</strong></h4>

@@ -1,68 +1,46 @@
 @extends('layouts.main')
 
-@section('title', 'Dashboard')
-
-@section('navtitle', 'Kelas')
+@section('title', 'Profil UKM')
 
 @section('title-content')
-Kelas
+Profil UKM
 @endsection
 
 @section('breadcrumb')
 <li><i class="fa fa-dashboard"></i> Home</a></li>
-<li></i> Kelas</a></li>
-<li class="active"></i> List Kelas</a></li>
+<li></i> Profil UKM</a></li>
+<li class="active"></i> Profil UKM</a></li>
 @endsection
 
 @section('content')
 <ul class="nav nav-pills">
-    <li class="active"><a href="/manajemensoal/kelas">List Kelas</a></li>
-    <li class=""><a href="/manajemensoal/kelas/create">Tambah Kelas</a></li>
+    <li class="active"><a href="/admin/profilukm"><i class="glyphicon glyphicon-align-justify"></i>Profil Ukm</a></li>
+    <li class=""><a href="/admin/profilukm/{{session('user')['id_ukm_user']}}/edit"><i class="glyphicon glyphicon-plus"></i>Edit Profil Ukm</a></li>
 </ul>
 <div class="box box-primary">
-    <div class="box-body">
-        <table id="tableKelas" class="table table-striped">
-            <thead>
-                <tr class="judul-kolom">
-                    <th >No</th>
-                    <th class="col-md-3">Kelas</th>
-                    <th class="col-md-4">Jenjang</th>
-                    <th class="col-md-4">Penjurusan</th>
-                    <th class="text-center">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach ($kelass as $index => $kelas)
-                <tr>
-                    <td>{{$index+1}}</td>
-                    <td>{{$kelas->namaKelas}}</td>
-                    <td>{{$kelas->jenjang->namaJenjang}}</td>
-                    <td>{{$kelas->penjurusanKelas}}</td>
-                    <td class="text-center">
-                        <a href="/manajemensoal/kelas/{{$kelas->idKelas}}" class="btn btn-sm btn-primary">Detail</a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-        <br>
-        <div class="row">
-            <div class="hidden-sm hidden-xs">
-                <div class="col-md-6">
-                    <!-- Menampilkan <b> 5 {{-- {{$kelas->count()+($kelas->currentPage()-1)*$kelas->perPage()}} --}} dari {{-- {{$kelas->total()}} --}} 10 </b> data-->
-                </div>
-                <div class="col-md-6 text-right pagination">
-                    {{-- {{ $kelas->links() }} --}}
-                </div>
+    <div class="box-body" style="padding: 10px 20px;">
+        @if ($errors->count()>0)
+            <div class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
             </div>
-            <div class="hidden-md hidden-lg">
-                <div class="col-sm-12 text-center">
-                    <!-- Menampilkan 5 <b>{{-- {{$kelas->count()+($kelas->currentPage()-1)*$kelas->perPage()}} --}} dari {{-- {{$kelas->total()}} --}} 10</b> data -->
-                </div>
-                <div class="col-sm-12 text-center pagination">
-                    {{-- {{ $kelas->links() }} --}}
-                </div>
+            <br>
+        @endif
+        @if (Session::get('message'))
+            <div class="alert alert-success" >
+               {{Session::get('message')}}
             </div>
+            <br>
+        @endif
+        <div class="panel panel-primary ">
+            <div class="panel-heading">
+                <h3>Profil</h3> 
+            </div>
+            <div class="panel-body">
+                <p>UKM Sepakbola ITS merupakan Unit Kegiatan yang menaungi mahasiswa ITS dalam bidang olahraga Sepakbola dan Futsal. Adanya UKM ini diharapkan dapat terus mengasah bakat-bakat mahasiswa kampus perjuangan hingga pada akhirnya dapat meraih prestasi non-akademik, khususnya di bidang olahraga Sepakbola dan Futsal.</p>
+                
+            </div>              
         </div>
     </div>
 </div>

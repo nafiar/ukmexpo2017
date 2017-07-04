@@ -16,8 +16,8 @@ Home Admin
         <div class="jumbotron">
             <div class="container text-center" style="background-color= #000000; margin-bottom: 30px;">
                 <br><br>
-                <h2 class="thin">Home</h2>
-                <p class="text-muted">Selamat datang di halaman Manajemen UKM, Silahkan pilih Menu Pendaftaran untuk menambahkan pendaftar</p>
+                <h2 class="thin">Admin UKM</h2>
+                <p class="text-muted">Selamat datang di halaman Admin UKM. Aplikasi ini digunakan untuk mengelola proses pendaftaran mahasiswa baru. Silahkan pilih Menu Pendaftaran untuk menambahkan pendaftar</p>
             </div>
         </div>
     </div>
